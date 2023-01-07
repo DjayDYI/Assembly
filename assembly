@@ -1,0 +1,29 @@
+Main:
+    DECLARE i 2
+    ADD i 1
+    MOV i
+    PRINT i
+    EQ 5 i GOTO Label
+
+Labelse:
+    PRINT "tab"
+    ADD i 2
+    MOV i
+    PRINT i
+    PUSH true
+    GOTO Labelfin
+
+Label:
+    PRINT "if"
+    PRINT i
+    PUSH true
+    GOTO Labelfin
+
+Labelfin:
+    DECLARE i2 0
+    ForLoop:
+    ADD i2 1
+    MOV i2
+    PRINT i2
+    LT 5 i2
+    GOTO ForLoop
