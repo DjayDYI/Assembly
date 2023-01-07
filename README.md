@@ -16,11 +16,25 @@ Exemple : `for loop`
 ```
 
 ### Generator
+
+
+Before calling a goto you need to push true into the stack `PUSH true` and then `GOTO Label`
+```
+PUSH true
+GOTO label
+```
+
+It is made so to simplify branch operation from comaparaison `eq 1 x` will push `true` or `false` on the stack and then execute the command `GOTO label` according to the stack. If the stack point to `false` then it wont branch if it point to `true` then it will modify the `pc` according to the program! The instruction will move the top of the stack into `i` wich is `i+1` 
+```
+ADD i 1
+MOV i
+```
+
 The generator simplify the writing 
 ```
-  PUSH 2 PUSH 3 ADD       | 2 3 ADD | ADD 2 3
-  PUSH x LOAD PUSH 1 ADD  | x 1 ADD | ADD 1 x
-  PUSH 2 PUSH x LOAD MOV  | 2 x MOV | MOV x 2
+PUSH 2 PUSH 3 ADD       | 2 3 ADD | ADD 2 3
+PUSH x LOAD PUSH 1 ADD  | x 1 ADD | ADD 1 x
+PUSH 2 PUSH x LOAD MOV  | 2 x MOV | MOV x 2
 ```
 It transform the for loop example into 
 ```
@@ -57,14 +71,6 @@ Label:
 
 Labelfin:
 ```
-
-Before calling a goto you need to push true into the stack `PUSH true` and then `GOTO Label`
-```
-PUSH true
-GOTO label
-```
-
-It is made so to simplify branch operation from comaparaison `eq 1 x` will push `true` or `false` on the stack and then execute the command `GOTO label` according to the stack. If the stack point to `false` then it wont branch if it point to `true` then it will modify the `pc` according to the program!  
 
 
 
