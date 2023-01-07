@@ -1,7 +1,7 @@
 # Assembly
 Wanted to do one for a long time, here it is Stack Machine Push Pop assembly langugage  
 
-### Machine Itself
+## Machine Itself
 The machine is a emulator it work in a queue way. First-in-first-out! I know stack based machine working in a queue way?
 Here it is : `PUSH 4` followed by `PUSH 5` will put the `stack pointer to 5` wich is the top of te stack.
 
@@ -15,21 +15,24 @@ Exemple : `for loop`
   LT PUSH LABEL GOTO
 ```
 
-### Generator
+## Generator
 
-
+### goto
 Before calling a goto you need to push true into the stack `PUSH true` and then `GOTO Label`
 ```
 PUSH true
 GOTO label
 ```
 
-It is made so to simplify branch operation from comaparaison `eq 1 x` will push `true` or `false` on the stack and then execute the command `GOTO label` according to the stack. If the stack point to `false` then it wont branch if it point to `true` then it will modify the `pc` according to the program! The instruction will move the top of the stack into `i` wich is `i+1` 
+It is made so to simplify branch operation from comaparaison `eq 1 x` will push `true` or `false` on the stack and then execute the command `GOTO label` according to the stack. If the stack point to `false` then it wont branch if it point to `true` then it will modify the `pc` according to the program!
+
+### mov
+The instruction will move the top of the stack into `i` wich is `i+1` 
 ```
 ADD i 1
 MOV i
 ```
-
+### Exemple
 The generator simplify the writing 
 ```
 PUSH 2 PUSH 3 ADD       | 2 3 ADD | ADD 2 3
