@@ -74,6 +74,22 @@ Label:
 
 Labelfin:
 ```
+## Compiler 
 
+```
+var x = 2 ;
+x = x + 3 ;
+print x ;
+if x == 4 iflabel ;
+elselabel:
+    x = x - 1;
+    goto endif;
+iflabel:
+    x = x + 4;
+    goto endif;
+endif:
+    print x;
+
+```
 
 
